@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Mina</title>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+
+<body>
+<header>
+    <ul>
+        <img class="header-img" src="slike\LOGO HORIZONTALNI.png" alt="Logo" />
+        <li><a href="#timovi">Timovi</a></li>
+        <li><a href="#projekti">Projekti</a></li>
+        <li><a href="#loakcije">Konferencije</a></li>
+        <li><a href="#dodavanje">Dodaj konferencije</a></li>
+    </ul>
+</header>
+
+<main>
+        <img src="slike\SEEK Cover Image (1).png" alt="Wallpaper" class="wallpaper">
+
+
+    <section id="timovi">
+        <h1 class="text-center">Naši timovi za projekat</h1>
+        <div class="boxes">
+            <div class="box green">
+                <h3>IT i dizajn</h3>
+                <p>23 clana</p>
+            </div>
+            <div class="box green">
+                <h3>HR</h3>
+                <p>17 clanova</p>
+            </div>
+            <div class="box green">
+                <h3>Logistika</h3>
+                <p>20 clanova</p>
+            </div>
+            <div class="box green">
+                <h3>PR</h3>
+                <p>21 clan</p>
+            </div>
+            <div class="box green">
+                <h3>CR</h3>
+                <p>12 clanova</p>
+            </div>
+        </div>
+    </section>
+    <section id="projekti">
+        <h2 class="text-center">Projekti</h2>
+        <div class="projekti-wrapper">
+            <div class="projekat">
+                <img class="img" src="slike\1.png"  />
+                <p>Na konferenciji o veštačkoj inteligenciji u poljima projektnoj menadžmenta u Dubaiju, učesnici mogu očekivati jedinstveno iskustvo koje spaja najnovija dostignuća u oblasti veštačke inteligencije sa prestižnom lokacijom u Dubaiju, jednom od najdinamičnijih i tehnološki najnaprednijih gradova na svetu. Ova konferencija okuplja stručnjake, istraživače, preduzetnike i entuzijaste iz celog sveta kako bi razgovarali o najnovijim trendovima, dostignućima i izazovima u oblasti veštačke inteligencije.</p>
+            </div>
+            <div class="projekat">
+                <img class="img" src="slike\2.png"/>
+                <p>Na konferenciji o napredovanju u svetu menadžmenta u New Yorku, učesnici mogu očekivati bogato i edukativno iskustvo koje objedinjuje najnovije trendove u menadžmentu s dinamičnom atmosferom ovog svetskog poslovnog centra. Ova konferencija okuplja lidera, menadžere, preduzetnike i profesionalce iz različitih industrija kako bi razgovarali o najnovijim praksama, izazovima i mogućnostima u svetu menadžmenta.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="loakcije">
+        <h1 class="text-center">Naredne konferencije</h1>
+        <div class="loakcije-wrapper">
+
+        </div>
+    </section>
+
+    <section id="dodavanje">
+        <h1 class="text-center">Dodaj novu konferenciju</h1>
+        <div class="form-wrapper">
+            <form enctype="multipart/form-data">
+                <label for="ime">Lokacija</label>
+                <input type="text" id="ime" name="ime" placeholder="Unesite ime" required />
+                <label for="slika">Slika</label>
+                <input type="file" id="slika" name="slika" placeholder="Unesite link slike" required />
+                <label for="opis">Opis</label>
+                <textarea rows="5" id="opis" name="opis" placeholder="Unesite opis" required></textarea>
+                <button onclick="unesiClana()" type="button">Dodaj predlog</button>
+            </form>
+        </div>
+    </section>
+
+</main>
+<footer>
+    <span>&copy; Mina | Napravljeno sa &hearts; </span>
+    <span class="sesija" onclick="obrisiSesiju()">Obrisi sesiju</span>
+</footer>
+<script>
+
+    function dodajClanove (){
+
+        const clanovi = [
+            {
+                id: 1,
+                ime: "Francuska",
+                slika: "slike/PARIZ.png",
+                opis: "International Marketing Summit 2024 će okupiti vodeće marketinške stručnjake, kompanije i preduzetnike iz različitih delova sveta kako bi istražili najnovije trendove i strategije u oblasti marketinga. Konferencija će se fokusirati na panele kompanija koje će razmatrati najnovije izazove i prilike u savremenom svetu marketinga."
+            },
+            {
+                id: 2,
+                ime: "Velika Britanija",
+                slika: "slike/LONDON.png",
+                opis: "RoboInnovate 2024 će biti globalno okupljanje vodećih stručnjaka, istraživača, inženjera i entuzijasta iz oblasti robotike. Konferencija će istražiti najnovije dostignuće i najvažnije trendove u robotici, nudeći učesnicima priliku da se upuste u dubinske diskusije o budućnosti ove dinamične oblasti."
+            },
+            {
+                id: 3,
+                ime: "Rusija",
+                slika: "slike/MOSKVA.png",
+                opis: "CreativeDesign Russia 2024 će biti međunarodno okupljanje kreativnih profesionalaca, dizajnera i umetnika iz celog sveta, posvećeno najnovijim trendovima i tehnikama u oblasti grafičkog dizajna. Konferencija će istražiti različite aspekte dizajna, od tradicionalnih medija do digitalnih platformi, kako bi inspirisala i obogatila kreativnu zajednicu."
+            },
+            {
+                id: 4,
+                ime: "Australija",
+                slika: "slike/SIDNEJ.png",
+                opis: "Project Management Excellence 2024 će okupiti stručnjake, menadžere projekata, lidera i profesionalce iz oblasti upravljanja projektima iz celog sveta. Ova konferencija će se fokusirati na najnovije metode, alatke i pristupe koji pomažu unapređenju upravljanja projektima, kako bi se postigao uspeh i efikasnost u različitim industrijama."
+            }
+        ];
+
+        let clanoviIzForme = window.sessionStorage.getItem("clanovi");
+
+        if (clanoviIzForme !== null) {
+            clanovi.push(...JSON.parse(clanoviIzForme));
+        }
+
+        let clanoviHtml = clanovi.map((clan) => {
+            return `
+            <article class="lokacija">
+                <img class="img" src="${clan.slika}" alt="${clan.ime}" />
+                <h3 class="text-center">${clan.ime}</h3>
+                <p>${clan.opis}</p>
+            </article>
+            `;
+        });
+
+        document.querySelector(".loakcije-wrapper").innerHTML = clanoviHtml.join("");
+    }
+
+    dodajClanove();
+
+    function unesiClana(event) {
+
+        let ime = document.getElementById("ime").value;
+        let opis = document.getElementById("opis").value;
+        let slika = 'slike/placeholder.png';
+
+        let slikaFajl = document.getElementById("slika");
+
+        if (slikaFajl.files && slikaFajl.files[0]) {
+            slika = URL.createObjectURL(slikaFajl.files[0]);
+        }
+
+        let clan = {
+            ime: ime,
+            slika: slika,
+            opis: opis
+        };
+
+        let clanovi = window.sessionStorage.getItem("clanovi");
+
+        if (clanovi === null) {
+            clanovi = [];
+        } else {
+            clanovi = JSON.parse(clanovi);
+        }
+
+        clanovi.push(clan);
+
+        window.sessionStorage.setItem("clanovi", JSON.stringify(clanovi));
+
+        dodajClanove();
+    }
+
+    obrisiSesiju = () => {
+        window.sessionStorage.clear();
+        dodajClanove();
+    }
+</script>
+</body>
+
+</html>
